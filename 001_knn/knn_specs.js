@@ -251,12 +251,12 @@ describe('Testing the basic KNN functionality.', function(){
 
 
 /*Switch this to a describe after you've completed the above.*/
-xdescribe('Testing the KNN with data from the MNIST', function(){
+describe('Testing the KNN with data from the MNIST', function(){
 
 	//Need more time, to handle all the data.
-	this.timeout(10000);
+	this.timeout(30000);
 
-	xit('Can handle somewhat chaotic data', function(){
+	it('Can handle somewhat chaotic data', function(){
 		var knn = new KNN(1);
 		var typeA = randomPoints(1000,[1,1],[0,0]).map(function(n){ return [n,0] });
 		var typeB = randomPoints(1000,[1,1],[.75,0]).map(function(n){ return [n,1] });
@@ -286,7 +286,7 @@ xdescribe('Testing the KNN with data from the MNIST', function(){
 	  How could you improve accuracy of the program?
 
     */
-	xit('Can be trained off the mnist data', function(done){
+	it('Can be trained off the mnist data', function(done){
 		var allElements = mnist.allElements();			//Should load up all 5000 elements
 		var knn = new KNN(2);
 		var trainingSet = allElements.slice(0,600); 	//Make the training set

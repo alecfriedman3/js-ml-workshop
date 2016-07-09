@@ -55,8 +55,22 @@ KNN.prototype.predict = function(arr) {
 };
 
 KNN.prototype.score = function(data) {
-  this.predict(data)
 
+  var compared = data.map(function (elem){
+    return elem[1]
+  })
+
+  var predicted = this.predict(data.map(function (element){
+    return element[0]
+  }))
+
+  var score = 0;
+
+  compared.forEach(function (classif, i){
+    if (classif == predicted[i]) score++
+  })
+
+  return score / compared.length
 };
 
 module.exports = KNN
